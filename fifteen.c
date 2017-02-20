@@ -156,7 +156,27 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+    // Set up board as array [row][column], assign initial values
+    
+    int board[d][d];
+    int count = ((d * d) -1);
+    
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            board[i][j] = count;
+            count--;
+        }
+    }
+    
+    if (d % 2 == 0)
+    {
+        board[d-1][d-3] = 2;
+        board[d-1][d-2] = 1;
+    }
+    else
+        return;
 }
 
 /**
