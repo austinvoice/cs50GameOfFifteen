@@ -213,8 +213,56 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
-    return false;
+    //User inputs tile to move
+    //Check to see if that tile exists and stores its postion
+    
+    int tile_i;
+    int tile_j;
+    if (tile > ((d * d) - 1)) 
+    {
+        return false;
+    }
+        
+    for (int i = 0; i < d; i++) 
+    {
+        for (int j = 0; j < d; j++) 
+        {
+                if (board[i][j] == tile) 
+                {
+                    tile_i = i;
+                    tile_j = j;
+                }
+        }
+    }
+        
+        //Checks to see if blank tile is above, below, left or right of input tile
+        //If not return false
+        
+        int tmp = board[tile_i][tile_j];
+        if (tile_i > 0 && board[tile_i-1][tile_j] == 0) { //up
+            //Swap blank tile and input tile
+            board[tile_i][tile_j] = board[tile_i-1][tile_j];
+            board[tile_i-1][tile_j] = tmp;
+            return true;
+        } 
+        else if (tile_i <= d-2 && board[tile_i+1][tile_j] == 0)   { //down
+                board[tile_i][tile_j] = board[tile_i+1][tile_j];
+                board[tile_i+1][tile_j] = tmp;
+                return true;
+                
+        } else if (tile_j > 0 && board[tile_i][tile_j-1] == 0) { //left
+                board[tile_i][tile_j] = board[tile_i][tile_j-1];
+                board[tile_i][tile_j-1] = tmp;
+                return true;
+                
+        } else if (tile_j <= d-2 && board[tile_i][tile_j+1] == 0) { //right
+                board[tile_i][tile_j] = board[tile_i][tile_j+1];
+                board[tile_i][tile_j + 1] = tmp;
+                return true;
+                
+        } else {
+                return false;
+        }
 }
 
 /**
