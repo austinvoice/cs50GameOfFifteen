@@ -240,6 +240,7 @@ bool move(int tile)
         
         int tmp = board[tile_i][tile_j];
         if (tile_i > 0 && board[tile_i-1][tile_j] == 0) { //up
+           
             //Swap blank tile and input tile
             board[tile_i][tile_j] = board[tile_i-1][tile_j];
             board[tile_i-1][tile_j] = tmp;
@@ -271,6 +272,26 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
-    return false;
+        // Iterate over board test if in order and end point blank
+        for (int i = 0; i < d; i++) 
+        {
+                for (int j = 0; j < d-1; j++) 
+                {
+                        if ( board[d-1][d-2] == ((d * d) - 1) && board[d-1][d-1] == 0) 
+                        {
+                                return true;
+                        }
+                        
+                        else if (board[i][j+1] - board[i][j] == 1) 
+                        {
+                                continue;
+                        } 
+                        
+                        else 
+                        {
+                                return false;
+                        }
+                }
+        }
+        return true;
 }
