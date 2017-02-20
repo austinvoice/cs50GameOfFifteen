@@ -158,7 +158,6 @@ void init(void)
 {
     // Set up board as array [row][column], assign initial values
     
-    int board[d][d];
     int count = ((d * d) -1);
     
     for (int i = 0; i < d; i++)
@@ -167,13 +166,15 @@ void init(void)
         {
             board[i][j] = count;
             count--;
+            
         }
     }
     
+    // If board is even dimension swap 1 and 2
     if (d % 2 == 0)
     {
-        board[d-1][d-3] = 2;
-        board[d-1][d-2] = 1;
+        board[d-1][d-3] = 1;
+        board[d-1][d-2] = 2;
     }
     else
         return;
@@ -184,7 +185,21 @@ void init(void)
  */
 void draw(void)
 {
-    // TODO
+    // Print board in d rows and d columns
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            printf("%i", board[i][j]);
+            printf("  ");
+            
+            // Insert line on d
+            if ((j+1) == d)
+            {
+                printf("\n");                
+            }
+        }
+    }
 }
 
 /**

@@ -1,4 +1,7 @@
-0. TODO
-1. TODO
-2. TODO
-3. TODO
+Besides 4 × 4 (which are Game of Fifteen’s dimensions), what other dimensions does the framework allow?
+
+With what sort of data structure is the game’s board represented?
+
+What function is called to greet the player at game’s start?
+
+What functions do you apparently need to implement?
