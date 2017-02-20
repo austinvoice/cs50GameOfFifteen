@@ -190,10 +190,15 @@ void draw(void)
     {
         for (int j = 0; j < d; j++)
         {
-            printf("%i", board[i][j]);
-            printf("  ");
+            if (board[i][j] != 0)
+            {
+                printf("| %2i |", board[i][j]);
+            }
             
-            // Insert line on d
+            else
+                printf("| __ |");
+            
+            // Insert return on d
             if ((j+1) == d)
             {
                 printf("\n");                
